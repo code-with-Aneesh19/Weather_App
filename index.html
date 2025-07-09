@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Tangerine"
+    />
+    <link
+      rel="stylesheet"
+      href="
+    https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="card">
+        <h2>
+          <i class="fa fa-map-marker">
+            <span id="location"></span>
+          </i>
+        </h2>
+        <h6 id="weather"></h6>
+        <h4><span id="temp"></span><sup>o</sup>C</h4>
+        <img src="" id="icon" alt="" />
+        <button onclick="window.location.reload()" class="refresh">
+          <i class="fa fa-refresh"></i>
+        </button>
+      </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script>
+      link =
+        "https://api.openweathermap.org/data/2.5/weather?q=jabalpur&appid=ce9594d0afb4c393d1a9c048101fc444";
+      var request = new XMLHttpRequest();
+      request.open("GET", link, true);
+      request.onload = function () {
+        var obj = JSON.parse(this.response);
+        console.log(obj);
+        document.getElementById("weather").innerHTML =
+          obj.weather[0].description;
+        document.getElementById("location").innerHTML = obj.name;
+        document.getElementById("temp").innerHTML = Math.round(
+          obj.main.temp - 273.15
+        );
+        document.getElementById("icon").src =
+          "https://openwethermap.org/img/w/ " + obj.wether[0].icon + ".png";
+      };
+      if ((request.status >= 200) & (request.status < 400)) {
+        var temp = obj.main.temp;
+      } else {
+        console.log("The city data is not available");
+      }
+      request.send();
+    </script>
+  </body>
+</html>
