@@ -1,38 +1,44 @@
-body{
+body {
     margin: 0;
     padding: 0;
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: "poppins";
+    font-family: "Poppins", sans-serif;
     color: #ffffff;
     background-color: #343434;
 }
-.container{
-    width: 26%;
 
+.container {
+    width: 26%;
 }
-.card{
+
+/* For large screens */
+.card {
     border-radius: 50px;
     background: #343434;
     box-shadow: 5px 5px 10px #191b1b, -5px -5px 10px #595959;
     padding: 3%;
     text-align: center;
 }
-.card h4{
+
+.card h4 {
     font-size: 4rem;
     font-weight: 400;
     margin: 1rem 0;
 }
-img #icon{
-    width: 20%;
 
+img#icon {
+    width: 20%;
 }
-h6 #weather{
+
+h6#weather {
     text-transform: capitalize;
+    font-size: 1.2rem;
 }
-button.refresh{
+
+button.refresh {
     display: block;
     width: 100px;
     margin: 10px auto;
@@ -43,9 +49,77 @@ button.refresh{
     height: 100px;
     border-radius: 50%;
     box-shadow: 10px 4px 10px #252525, 5px 5px 18px #4a4a4a;
-
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
-button.refresh:hover{
-    box-shadow: inset 10px 4pc 10pc #252525, inset 5px 5px 18px #4a4a4a;
 
+button.refresh:hover {
+    box-shadow: inset 10px 4px 10px #252525, inset 5px 5px 18px #4a4a4a;
+}
+
+/* Tablets (768px–1023px) */
+@media only screen and (max-width: 1023px) {
+    .container {
+        width: 50%;
+    }
+    .card h4 {
+        font-size: 3rem;
+    }
+    img#icon {
+        width: 25%;
+    }
+    h6#weather {
+        font-size: 1.1rem;
+    }
+    button.refresh {
+        width: 80px;
+        height: 80px;
+        font-size: 24px;
+    }
+}
+
+/* Mobile (481px–767px) */
+@media only screen and (max-width: 767px) {
+    .container {
+        width: 80%;
+    }
+    .card h4 {
+        font-size: 2.5rem;
+    }
+    img#icon {
+        width: 30%;
+    }
+    h6#weather {
+        font-size: 1rem;
+    }
+    button.refresh {
+        width: 70px;
+        height: 70px;
+        font-size: 22px;
+    }
+}
+
+/* Small Phones (0–480px) */
+@media only screen and (max-width: 480px) {
+    .container {
+        width: 90%;
+    }
+    .card {
+        border-radius: 30px;
+        padding: 5%;
+    }
+    .card h4 {
+        font-size: 2rem;
+    }
+    img#icon {
+        width: 35%;
+    }
+    h6#weather {
+        font-size: 0.9rem;
+    }
+    button.refresh {
+        width: 60px;
+        height: 60px;
+        font-size: 20px;
+    }
 }
